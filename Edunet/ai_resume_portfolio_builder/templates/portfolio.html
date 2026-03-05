@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="portfolio {{ portfolio.theme }}">
+<h2>Your Portfolio</h2>
+
+{% if portfolio.name %}
+<h3>{{ portfolio.name }}</h3>
+{% endif %}
+
+{% if portfolio.about %}
+<p>{{ portfolio.about }}</p>
+{% endif %}
+
+{% if portfolio.resume_file %}
+<p><a href="{{ url_for('download', filename=portfolio.resume_file) }}">Download Resume (PDF)</a></p>
+{% endif %}
+
+{% if portfolio.skills %}
+<h4>Skills</h4>
+<ul>
+    {% for s in portfolio.skills %}
+    <li>{{ s }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% if portfolio.projects %}
+<h4>Projects</h4>
+<ul>
+    {% for p in portfolio.projects %}
+    <li>{{ p }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+</div>
+{% endblock %}

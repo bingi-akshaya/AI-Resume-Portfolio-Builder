@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Resume Preview</h2>
+
+<h3>Generated Resume</h3>
+<pre style="background:#f4f4f4;padding:10px;">
+{% for line in resume %}{{ line }}
+{% endfor %}
+</pre>
+
+{% if original_resume and original_resume != resume %}
+<h4>Original (before optimization)</h4>
+<pre style="background:#eef;padding:10px;">
+{% for line in original_resume %}{{ line }}
+{% endfor %}
+</pre>
+{% endif %}
+
+<h3>Skill Suggestions</h3>
+<ul>
+{% for skill in suggestions %}
+    <li>{{ skill }}</li>
+{% endfor %}
+</ul>
+
+{% if job_analysis %}
+<h3>Job Description Analysis</h3>
+<ul>
+    {% if job_analysis.experience_level %}
+    <li>Experience level: {{ job_analysis.experience_level }}</li>
+    {% endif %}
+    {% if job_analysis.required_skills %}
+    <li>Required skills: {{ job_analysis.required_skills|join(', ') }}</li>
+    {% endif %}
+    {% if job_analysis.keywords %}
+    <li>Keywords: {{ job_analysis.keywords|join(', ') }}</li>
+    {% endif %}
+</ul>
+{% endif %}
+
+{% if resume_score %}
+<h3>Resume Score: {{ resume_score.score }} / 100</h3>
+<p><strong>Strengths</strong></p>
+<ul>
+{% for s in resume_score.strengths %}
+    <li>{{ s }}</li>
+{% endfor %}
+</ul>
+<p><strong>Suggestions</strong></p>
+<ul>
+{% for s in resume_score.suggestions %}
+    <li>{{ s }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+
+{% if cover_letter %}
+<h3>Cover Letter</h3>
+<pre style="background:#f9f9f9;padding:10px;">{{ cover_letter }}</pre>
+{% endif %}
+
+{% if interview_questions %}
+<h3>Interview Questions</h3>
+<ol>
+    {% for q in interview_questions %}
+    <li>{{ q }}</li>
+    {% endfor %}
+</ol>
+{% endif %}
+
+<p><a href="{{ url_for('download', filename=filename) }}">Download PDF</a></p>
+
+{% if qr_file %}
+<p>Portfolio QR code:</p>
+<img src="/qr/{{ qr_file.split('/')[-1] }}" alt="QR code" width="150">
+<p><a href="/portfolio/{{ portfolio.name }}">View portfolio page</a></p>
+{% endif %}
+{% endblock %}

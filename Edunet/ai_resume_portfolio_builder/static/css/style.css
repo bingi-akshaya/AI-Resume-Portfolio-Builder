@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #00539C;
+}
+
+a {
+    color: #0077cc;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-top: 4px;
+}
+
+input[type="submit"] {
+    background: #00539C;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #003d73;
+}
+
+/* portfolio themes */
+.container.dark, .portfolio.dark {
+    background: #222;
+    color: #ddd;
+}
+.container.dark a, .portfolio.dark a {
+    color: #66aaff;
+}
+
+.portfolio.minimal {
+    background: white;
+    color: #333;
+}
+.portfolio.minimal h2, .portfolio.minimal h3, .portfolio.minimal h4 {
+    color: #444;
+}
+

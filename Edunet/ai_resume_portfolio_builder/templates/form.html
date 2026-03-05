@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Enter Your Details</h2>
+<form action="/generate" method="post">
+    <label>Name:<br><input type="text" name="name" required></label><br><br>
+    <label>Profile picture URL:<br><input type="text" name="photo" placeholder="https://...jpg"></label><br><br>
+    <label>Contact (email/phone):<br><input type="text" name="contact"></label><br><br>
+
+    <label>Position applying for:<br><input type="text" name="position"></label><br><br>
+    <label>Company:<br><input type="text" name="company"></label><br><br>
+
+    <label>Summary / Objective:<br>
+        <textarea name="summary" rows="3" cols="40" placeholder="Brief career summary or objective"></textarea>
+    </label><br><br>
+
+    <label>Skills (comma separated):<br>
+        <input type="text" name="skills" placeholder="Python, SQL, JavaScript">
+    </label><br><br>
+
+    <label>Projects (separate by new line or comma):<br>
+        <textarea name="projects" rows="4" cols="40"></textarea>
+    </label><br><br>
+
+    <label>Experience (separate items by new line):<br>
+        <textarea name="experience" rows="4" cols="40"></textarea>
+    </label><br><br>
+
+    <label>Education (separate items by new line):<br>
+        <textarea name="education" rows="3" cols="40"></textarea>
+    </label><br><br>
+
+    <label>Certifications (new line separated):<br>
+        <textarea name="certifications" rows="3" cols="40"></textarea>
+    </label><br><br>
+
+    <label>Awards & Honors (new line separated):<br>
+        <textarea name="awards" rows="3" cols="40"></textarea>
+    </label><br><br>
+
+    <label>Languages (comma separated):<br>
+        <input type="text" name="languages" placeholder="English, Spanish">
+    </label><br><br>
+
+    <label>About (short bio):<br>
+        <textarea name="about" rows="3" cols="40"></textarea>
+    </label><br><br>
+
+    <label>Job description text (used for keyword/skill analysis):<br>
+        <textarea name="job_description" rows="5" cols="60"></textarea>
+    </label><br><br>
+
+    <label>Portfolio theme:<br>
+        <select name="theme">
+            <option value="default" selected>Default</option>
+            <option value="dark">Dark</option>
+            <option value="minimal">Minimal</option>
+        </select>
+    </label><br><br>
+
+    <input type="submit" value="Generate Resume & Portfolio">
+</form>
+{% endblock %}

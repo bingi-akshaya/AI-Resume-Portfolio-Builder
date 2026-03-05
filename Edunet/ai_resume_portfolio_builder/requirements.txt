@@ -1,0 +1,6 @@
+flask
+reportlab
+qrcode
+pillow
+# lightweight operation - remove nltk and scikit-learn to avoid large imports
+
